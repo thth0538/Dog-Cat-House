@@ -2,142 +2,142 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   // Dropdown menu
   // ==========================
-  let homepageDropdownTimer;
-  const homepageDropdown = document.querySelector('.homepage-dropdown');
-  const homepageDropdownContent = document.querySelector('.homepage-dropdown-content');
+  let indexDropdownTimer;
+  const indexDropdown = document.querySelector('.index-dropdown');
+  const indexDropdownContent = document.querySelector('.index-dropdown-content');
 
-  homepageDropdown.addEventListener('mouseleave', (e) => {
-    if (!homepageDropdownContent.contains(e.relatedTarget)) {
-      homepageDropdownTimer = setTimeout(() => {
-        if (!homepageDropdownContent.matches(':hover')) {
-          homepageDropdownContent.style.display = 'none';
-          homepageDropdownContent.style.opacity = '0';
+  indexDropdown.addEventListener('mouseleave', (e) => {
+    if (!indexDropdownContent.contains(e.relatedTarget)) {
+      indexDropdownTimer = setTimeout(() => {
+        if (!indexDropdownContent.matches(':hover')) {
+          indexDropdownContent.style.display = 'none';
+          indexDropdownContent.style.opacity = '0';
         }
       }, 500); // Delay 500ms
     }
   });
 
-  homepageDropdownContent.addEventListener('mouseleave', (e) => {
-    if (!homepageDropdown.contains(e.relatedTarget)) {
-      homepageDropdownContent.style.display = 'none';
-      homepageDropdownContent.style.opacity = '0';
+  indexDropdownContent.addEventListener('mouseleave', (e) => {
+    if (!indexDropdown.contains(e.relatedTarget)) {
+      indexDropdownContent.style.display = 'none';
+      indexDropdownContent.style.opacity = '0';
     }
   });
 
-  homepageDropdown.addEventListener('mouseenter', () => {
-    clearTimeout(homepageDropdownTimer);
+  indexDropdown.addEventListener('mouseenter', () => {
+    clearTimeout(indexDropdownTimer);
   });
 
   // ==========================
   // Banner Slideshow
   // ==========================
-  const homepageSlideshow = document.querySelector(".homepage-banner-slideshow");
-  const homepageDots = document.querySelectorAll(".homepage-banner-dot");
-  const homepageBanner = document.querySelector(".homepage-banner-wrapper");
-  const homepageSlides = document.querySelectorAll(".homepage-banner-slide");
-  const homepageTotalSlides = homepageSlides.length;
+  const indexSlideshow = document.querySelector(".index-banner-slideshow");
+  const indexDots = document.querySelectorAll(".index-banner-dot");
+  const indexBanner = document.querySelector(".index-banner-wrapper");
+  const indexSlides = document.querySelectorAll(".index-banner-slide");
+  const indexTotalSlides = indexSlides.length;
 
-  let homepageCurrentIndex = 0;
-  let homepageIntervalId;
-  let homepageIsHovering = false;
-  const homepageSlideInterval = 5000; // 5 seconds
+  let indexCurrentIndex = 0;
+  let indexIntervalId;
+  let indexIsHovering = false;
+  const indexSlideInterval = 5000; // 5 seconds
 
-  function homepageInitSlideshow() {
-    homepageSlideshow.style.transform = `translateX(-${homepageCurrentIndex * 100}%)`;
-    homepageUpdateDots();
+  function indexInitSlideshow() {
+    indexSlideshow.style.transform = `translateX(-${indexCurrentIndex * 100}%)`;
+    indexUpdateDots();
   }
 
-  function homepageGoToSlide(index) {
-    homepageCurrentIndex = (index + homepageTotalSlides) % homepageTotalSlides;
-    homepageSlideshow.style.transform = `translateX(-${homepageCurrentIndex * 100}%)`;
-    homepageUpdateDots();
+  function indexGoToSlide(index) {
+    indexCurrentIndex = (index + indexTotalSlides) % indexTotalSlides;
+    indexSlideshow.style.transform = `translateX(-${indexCurrentIndex * 100}%)`;
+    indexUpdateDots();
   }
 
-  function homepageUpdateDots() {
-    homepageDots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === homepageCurrentIndex);
+  function indexUpdateDots() {
+    indexDots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === indexCurrentIndex);
     });
   }
 
-  function homepageStartAutoSlide() {
-    homepageStopAutoSlide();
-    homepageIntervalId = setInterval(() => {
-      if (!homepageIsHovering) {
-        homepageGoToSlide(homepageCurrentIndex + 1);
+  function indexStartAutoSlide() {
+    indexStopAutoSlide();
+    indexIntervalId = setInterval(() => {
+      if (!indexIsHovering) {
+        indexGoToSlide(indexCurrentIndex + 1);
       }
-    }, homepageSlideInterval);
+    }, indexSlideInterval);
   }
 
-  function homepageStopAutoSlide() {
-    if (homepageIntervalId) {
-      clearInterval(homepageIntervalId);
+  function indexStopAutoSlide() {
+    if (indexIntervalId) {
+      clearInterval(indexIntervalId);
     }
   }
 
-  homepageDots.forEach((dot) => {
+  indexDots.forEach((dot) => {
     dot.addEventListener("click", (e) => {
       e.preventDefault();
       const index = parseInt(dot.getAttribute('data-index'));
-      homepageGoToSlide(index);
-      homepageStopAutoSlide();
-      homepageStartAutoSlide();
+      indexGoToSlide(index);
+      indexStopAutoSlide();
+      indexStartAutoSlide();
     });
   });
 
-  homepageBanner.addEventListener("mouseenter", () => {
-    homepageIsHovering = true;
-    homepageStopAutoSlide();
+  indexBanner.addEventListener("mouseenter", () => {
+    indexIsHovering = true;
+    indexStopAutoSlide();
   });
 
-  homepageBanner.addEventListener("mouseleave", () => {
-    homepageIsHovering = false;
-    homepageStartAutoSlide();
+  indexBanner.addEventListener("mouseleave", () => {
+    indexIsHovering = false;
+    indexStartAutoSlide();
   });
 
-  let homepageTouchStartX = 0;
-  let homepageTouchEndX = 0;
+  let indexTouchStartX = 0;
+  let indexTouchEndX = 0;
 
-  homepageBanner.addEventListener('touchstart', (e) => {
-    homepageTouchStartX = e.changedTouches[0].screenX;
-    homepageStopAutoSlide();
+  indexBanner.addEventListener('touchstart', (e) => {
+    indexTouchStartX = e.changedTouches[0].screenX;
+    indexStopAutoSlide();
   }, { passive: true });
 
-  homepageBanner.addEventListener('touchend', (e) => {
-    homepageTouchEndX = e.changedTouches[0].screenX;
-    homepageHandleSwipe();
-    homepageStartAutoSlide();
+  indexBanner.addEventListener('touchend', (e) => {
+    indexTouchEndX = e.changedTouches[0].screenX;
+    indexHandleSwipe();
+    indexStartAutoSlide();
   }, { passive: true });
 
-  function homepageHandleSwipe() {
-    const difference = homepageTouchStartX - homepageTouchEndX;
+  function indexHandleSwipe() {
+    const difference = indexTouchStartX - indexTouchEndX;
     if (difference > 50) {
-      homepageGoToSlide(homepageCurrentIndex + 1);
+      indexGoToSlide(indexCurrentIndex + 1);
     } else if (difference < -50) {
-      homepageGoToSlide(homepageCurrentIndex - 1);
+      indexGoToSlide(indexCurrentIndex - 1);
     }
   }
 
-  homepageInitSlideshow();
-  homepageStartAutoSlide();
+  indexInitSlideshow();
+  indexStartAutoSlide();
 
   // ==========================
   // Scroll To Top Button
   // ==========================
   window.addEventListener('scroll', function() {
-    const homepageScrollBtn = document.getElementById('scrollTopBtn');
+    const indexScrollBtn = document.getElementById('scrollTopBtn');
     if (window.pageYOffset > 300) {
-      homepageScrollBtn.style.opacity = '1';
-      homepageScrollBtn.style.visibility = 'visible';
+      indexScrollBtn.style.opacity = '1';
+      indexScrollBtn.style.visibility = 'visible';
     } else {
-      homepageScrollBtn.style.opacity = '0';
-      homepageScrollBtn.style.visibility = 'hidden';
+      indexScrollBtn.style.opacity = '0';
+      indexScrollBtn.style.visibility = 'hidden';
     }
   });
 
   // Khởi tạo trạng thái nút scroll
-  const homepageScrollBtnInit = document.getElementById('scrollTopBtn');
-  homepageScrollBtnInit.style.opacity = '0';
-  homepageScrollBtnInit.style.visibility = 'hidden';
-  homepageScrollBtnInit.style.transition = 'opacity 0.3s, visibility 0.3s';
+  const indexScrollBtnInit = document.getElementById('scrollTopBtn');
+  indexScrollBtnInit.style.opacity = '0';
+  indexScrollBtnInit.style.visibility = 'hidden';
+  indexScrollBtnInit.style.transition = 'opacity 0.3s, visibility 0.3s';
 
 });
