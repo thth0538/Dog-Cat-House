@@ -1,0 +1,114 @@
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+
+    .homepage-top-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .homepage-logo-container {
+        width: 150px;
+    }
+
+    .homepage-search-box {
+        flex: 1 1 100%;
+        max-width: 600px;
+        margin: 10px 0;
+    }
+
+    .homepage-right-section {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 10px;
+    }
+
+    .homepage-hotline, .homepage-icons {
+        text-align: center;
+    }
+
+    .homepage-hotline a {
+        font-size: 16px;
+    }
+
+    .homepage-menu-bar {
+        flex-wrap: wrap;
+    }
+
+}
+
+/* Mobile (dÆ°á»›i 768px) */
+@media (max-width: 767px) {
+
+    .homepage-top-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .homepage-logo-container {
+        width: 130px;
+    }
+
+    .homepage-search-box {
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .homepage-search-box input {
+        width: 100%;
+    }
+
+    .homepage-right-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .homepage-hotline, .homepage-icons {
+        text-align: center;
+    }
+
+    .homepage-icons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid, .row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container, .content, .wrapper {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 18px; }
+
+    button, input, select, textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+}
