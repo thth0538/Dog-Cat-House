@@ -1,23 +1,23 @@
 /* Tablet (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 768px) {
 
-    .homepage-top-bar {
+    .index-top-bar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
     }
 
-    .homepage-logo-container {
+    .index-logo-container {
         width: 150px;
     }
 
-    .homepage-search-box {
+    .index-search-box {
         flex: 1 1 100%;
         max-width: 600px;
         margin: 10px 0;
     }
 
-    .homepage-right-section {
+    .index-right-section {
         flex: 1 1 100%;
         display: flex;
         justify-content: center;
@@ -25,15 +25,15 @@
         margin-top: 10px;
     }
 
-    .homepage-hotline, .homepage-icons {
+    .index-hotline, .index-icons {
         text-align: center;
     }
 
-    .homepage-hotline a {
+    .index-hotline a {
         font-size: 16px;
     }
 
-    .homepage-menu-bar {
+    .index-menu-bar {
         flex-wrap: wrap;
     }
 
@@ -42,28 +42,28 @@
 /* Mobile (dÆ°á»›i 768px) */
 @media (max-width: 767px) {
 
-    .homepage-top-bar {
+    .index-top-bar {
         flex-direction: column;
         align-items: center;
         padding: 15px;
         gap: 15px;
     }
 
-    .homepage-logo-container {
+    .index-logo-container {
         width: 130px;
     }
 
-    .homepage-search-box {
+    .index-search-box {
         width: 100%;
         margin: 0;
         max-width: 100%;
     }
 
-    .homepage-search-box input {
+    .index-search-box input {
         width: 100%;
     }
 
-    .homepage-right-section {
+    .index-right-section {
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -71,11 +71,11 @@
         margin-top: 10px;
     }
 
-    .homepage-hotline, .homepage-icons {
+    .index-hotline, .index-icons {
         text-align: center;
     }
 
-    .homepage-icons {
+    .index-icons {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
